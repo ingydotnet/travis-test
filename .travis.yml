@@ -1,0 +1,27 @@
+os: linux
+dist: trusty
+# sudo: required
+sudo: false     # faster boot
+language: c
+
+# addons:
+#   apt:
+#     packages:
+#     - aptitude
+#     - build-essential
+#     - perl
+
+# env:
+#   global:
+#   - FOO=123
+
+script:
+- env | sort
+- ls -al $HOME
+- find $HOME
+    | grep -v '/\.[nr]vm/'
+    | grep -v '/\.gimme/'
+    | grep -v '/\.phpenv/'
+    | grep -v '/virtualenv/'
+    | grep -v '/otp/'
+- pwd
